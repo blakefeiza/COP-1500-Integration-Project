@@ -1,0 +1,188 @@
+"""
+This program displays what I've learned about Python and computer science
+coding. Here, I play with some numbers and harass the user.
+"""
+__author__ = "Blake Feiza"
+
+import random
+import math
+
+print('Welcome to my first attempt at a Python program!')
+name = input("What's your name? ")
+print("Well hey there " + name + ", nice to meet you.")
+
+print("Let's get started. Go ahead and give me three integers to play with.")
+num1 = int(input())
+num2 = int(input())
+num3 = int(input())
+print("Ah, yes. The classic", num1, num2, num3, " sequence.")
+total = num1 + num2 + num3
+print("I love all three-term sequences that sum to ", total, ".", sep="")
+total_2 = total ** 2
+answer = input("And what could the square of that sum be? ")
+if answer == "no":
+    print("Easy. The square is of ", total, " is just ", total_2, ".", sep="")
+else:
+    print("Okay, ", name, ". What's the square of ", total, "?", sep="")
+    attempt = int(input())
+    if attempt == total_2:
+        hip = "Hip "
+        # noinspection SpellCheckingInspection
+        hor = "Horray!"
+        hip2 = hip * 2
+        hhh = hip2 + hor
+        print(hhh)
+    else:
+        print("So wrong! The solution is actually ", total_2, sep="")
+        off = abs(attempt - total_2)
+        print("You were off by a value of ", off, sep="")
+
+print("I'm bored of that sequence, let's talk about your income.")
+print("How much money do you make?")
+salary = float(input("Enter your yearly salary: "))
+if salary >= 100000:
+    donate = 5000
+elif salary >= 75000:
+    donate = 2000
+elif salary >= 50000:
+    donate = 1000
+elif salary >= 25000:
+    donate = 500
+elif salary >= 2000:
+    donate = 100
+else:
+    donate = 0
+print("If you're generous, you'll donate: $", format(donate, '.2f'), sep="")
+
+print("Okay, lets switch it up.")
+fav = int(input("Whats's your favorite three-digit number?: "))
+s1 = fav // 100
+s2 = ((fav % 100) // 10)
+s3 = (fav % 10)
+if (s1 < s2) and (s2 < s3):
+    print("I love ascending numbers too!")
+elif (s3 < s2) and (s2 < s3):
+    print("You thought I wouldn't notice a descending number? Nice!")
+else:
+    print("Cool number, I wish it was ascending or descending though...")
+print("Forget about those numbers.")
+
+print("What's your favorite single digit number?")
+print("(0 counts... I guess.)")
+number = int(input())
+if number == 9:
+    print("Hey, that's my favorite number too! I'm starting to like you.")
+if number == 0:
+    print("You're a rebel, I like you.")
+elif number < 0 or number > 9:
+    print("Glad you took my question seriously... Sarcasm.")
+elif number <= 8 or number >= 0:
+    print("That's cool, not as cool as 9 though...")
+
+
+mine = random.randint(1, 10)
+
+
+def game():
+    """
+    This is where I define the guessing game.
+    """
+    print("Guessing Game! I'm thinking of a number between 1 and 10.")
+    attempts = 0
+    while attempts < 9:
+        guess = int(input("What number do you guess? "))
+        if guess > 10 or guess < 0:
+            print("That's not even in the range! Don't waste your guesses!")
+        else:
+            if guess == mine:
+                print("Wow! You got it! Congratulations!")
+                attempts += 10
+            elif guess != mine:
+                if guess > mine:
+                    print("Your guess was too high, try again!")
+                else:
+                    print("Your guess was too low, try again!")
+        attempts += 1
+
+
+game()
+print("Well, that was fun. Let's do a pendulum problem.")
+print(
+    "Give me the length of the string and I'll tell you the period.")
+length = int(input("What is the length of the pendulum?: "))
+float(length)
+
+
+pendulum_period = 2 * math.pi * math.sqrt(length / 9.8)
+print("The period of that pendulum will be", format(pendulum_period, '.2f'),
+      "seconds.")
+print("Thanks for sticking around this long, uh...")
+print("You thought I forgot your name? I would never!")
+repeat_name = int(
+    input("How many times do I need to say it for you to believe me? "))
+for x in range(repeat_name):
+    print(name + " ")
+print("I've got two more tricks for you,", name)
+print("Remember that sequence you gave me earlier? I do.")
+
+
+def mean_function(number1, number2, number3):
+    """
+    This function finds the mean value of the sequence of 3 from earlier.
+    """
+    mean_sum = number1 + number2 + number3
+    true_mean = mean_sum / 3
+    return true_mean
+
+
+print("I can tell you that the mean of those numbers is.")
+sequence_mean = mean_function(num1, num2, num3)
+print("The mean is:", sequence_mean)
+
+print("Let's play with a Magic 8 ball!")
+question_number = int(input("How many questions do you want to ask? "))
+for x in range(0, question_number):
+    question_asked = input("Ask the Magic 8-Ball Anything: ")
+    response = random.randint(1, 20)
+    if response == 1:
+        print("It is certain.")
+    elif response == 2:
+        print("It is decidedly so.")
+    elif response == 3:
+        print("Without a doubt.")
+    elif response == 4:
+        print("Yes - definitely.")
+    elif response == 5:
+        print("You may rely on it.")
+    elif response == 6:
+        print("As I see it, yes.")
+    elif response == 7:
+        print("Most likely.")
+    elif response == 8:
+        print("Outlook good.")
+    elif response == 9:
+        print("Yes.")
+    elif response == 10:
+        print("Signs point to yes.")
+    elif response == 11:
+        print("Reply hazy, try again.")
+    elif response == 12:
+        print("Ask again later.")
+    elif response == 13:
+        print("Better not tell you now.")
+    elif response == 14:
+        print("Cannot predict now.")
+    elif response == 15:
+        print("Concentrate and ask again.")
+    elif response == 16:
+        print("Don't count on it.")
+    elif response == 17:
+        print("My reply is no.")
+    elif response == 18:
+        print("My sources say no.")
+    elif response == 19:
+        print("Outlook not so good.")
+    elif response == 20:
+        print("Very doubtful.")
+
+print("Alright, we're done here. Go outside or something, see ya!")
